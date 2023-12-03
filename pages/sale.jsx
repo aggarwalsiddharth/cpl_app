@@ -2,7 +2,7 @@ import { useState } from "react";
 import clientPromise from "../lib/mongodb";
 //,board_thickness,board_grade,plain_board_stock,papers_list,paper_roll_stock
 
-export default function ProductionPrelam({
+export default function Sale({
   paper_list,
   board_category,
   board_thickness,
@@ -29,7 +29,7 @@ export default function ProductionPrelam({
     quantity: "",
     paper: "",
     type: "",
-    remark: "PRODUCTION",
+    remark: "SALE",
   });
 
   const handleChange = (e) => {
@@ -71,8 +71,8 @@ export default function ProductionPrelam({
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Add Pre-Lam Production</h1>
-      <h3> Enter Production Date:</h3>
+      <h1>Add Sale</h1>
+      <h3> Enter Sale Date:</h3>
       <input
         type="date"
         name="date"
@@ -105,10 +105,7 @@ export default function ProductionPrelam({
           </option>
         ))}
       </select>
-      <p>
-        Available Amount before Production: <b>{145} kg </b> Roll &{" "}
-        <b>{120} sheets</b> in AC Room
-      </p>
+
       <h3> Select Board Category:</h3>
       <select
         name="category"
@@ -162,9 +159,8 @@ export default function ProductionPrelam({
           </option>
         ))}
       </select>
-      <p>Available Amount before Production: {120} boards</p>
 
-      <h3> Select Production Type:</h3>
+      <h3> Select Sale Type:</h3>
       <select
         name="type"
         value={formData.type}
@@ -186,8 +182,8 @@ export default function ProductionPrelam({
           BSL
         </option>
       </select>
-
-      <h3> Enter Production Quantity:</h3>
+      <p>Available Amount after Production: {120} boards</p>
+      <h3> Enter Sale Quantity (in pcs):</h3>
       <input
         type="number"
         name="quantity"
