@@ -1,12 +1,14 @@
 import { useState } from "react";
 import clientPromise from "../lib/mongodb";
+import { useRouter } from "next/router";
 //,board_thickness,board_grade,plain_board_stock,papers_list,paper_roll_stock
-
+import Nav from "../components/Nav";
 export default function PurchaseBoard({
   board_category,
   board_thickness,
   board_grade,
 }) {
+  const router = useRouter();
   const today = new Date();
 
   // Get the individual components of the date (year, month, day)
@@ -51,7 +53,8 @@ export default function PurchaseBoard({
     });
 
     if (response.ok) {
-      alert("Data saved successfully");
+      // alert("Data saved successfully");
+      router.push("/board_inventory");
       // Optionally, you can navigate to a success page or display a success message
     } else {
       alert("Data save failed");
@@ -67,6 +70,7 @@ export default function PurchaseBoard({
   };
   return (
     <form onSubmit={handleSubmit}>
+      <Nav />
       <h1>Add purchase of Plain Board</h1>
 
       <h3> Enter Purchase Date:</h3>

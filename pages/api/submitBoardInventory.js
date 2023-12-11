@@ -19,17 +19,7 @@ export default async function handler(req, res) {
 
     // Save the form data to MongoDB
     // Example: Saving to a "contacts" collection
-    const Inventory = mongoose.model("board_inventory", {
-      date: String,
-      bill: String,
-      category: String,
-      thickness: String,
-      grade: String,
-      quantity: String,
-      paper: String,
-      type: String,
-      remark: String,
-    });
+    const Inventory = mongoose.model("board_inventory");
 
     const newInventory = new Inventory({
       date,

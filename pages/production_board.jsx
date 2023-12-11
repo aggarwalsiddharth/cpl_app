@@ -1,5 +1,8 @@
 import { useState } from "react";
 import clientPromise from "../lib/mongodb";
+import Nav from "../components/Nav";
+import { useRouter } from "next/router";
+
 //,board_thickness,board_grade,plain_board_stock,papers_list,paper_roll_stock
 
 export default function ProductionPrelam({
@@ -8,6 +11,7 @@ export default function ProductionPrelam({
   board_thickness,
   board_grade,
 }) {
+  const router = useRouter();
   const today = new Date();
 
   // Get the individual components of the date (year, month, day)
@@ -52,7 +56,8 @@ export default function ProductionPrelam({
     });
 
     if (response.ok) {
-      alert("Data saved successfully");
+      router.push("/production_inventory");
+      // alert("Data saved successfully");
       // Optionally, you can navigate to a success page or display a success message
     } else {
       alert("Data save failed");
@@ -71,6 +76,7 @@ export default function ProductionPrelam({
 
   return (
     <form onSubmit={handleSubmit}>
+      <Nav />
       <h1>Add Pre-Lam Production</h1>
       <h3> Enter Production Date:</h3>
       <input

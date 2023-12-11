@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import clientPromise from "../lib/mongodb";
 //,board_thickness,board_grade,plain_board_stock,papers_list,paper_roll_stock
 
@@ -8,6 +9,7 @@ export default function Sale({
   board_thickness,
   board_grade,
 }) {
+  const router = useRouter();
   const today = new Date();
 
   // Get the individual components of the date (year, month, day)
@@ -52,7 +54,8 @@ export default function Sale({
     });
 
     if (response.ok) {
-      alert("Data saved successfully");
+      router.push("/sale_inventory");
+      // alert("Data saved successfully");
       // Optionally, you can navigate to a success page or display a success message
     } else {
       alert("Data save failed");

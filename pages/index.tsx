@@ -1,6 +1,7 @@
 import Head from "next/head";
 import clientPromise from "../lib/mongodb";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+import Nav from "../components/Nav";
 
 type ConnectionStatus = {
   isConnected: boolean;
@@ -35,11 +36,12 @@ export default function Home({
   isConnected,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <div className="container">
+    <div>
       <Head>
         <title>CPL Stock</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav />
 
       <main>CPL Stock</main>
 

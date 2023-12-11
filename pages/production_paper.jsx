@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import clientPromise from "../lib/mongodb";
+import Nav from "../components/Nav";
 //,board_thickness,board_grade,plain_board_stock,papers_list,paper_roll_stock
 
 export default function ProductionPaper({ paper_list }) {
@@ -62,6 +63,7 @@ export default function ProductionPaper({ paper_list }) {
   };
   return (
     <form onSubmit={handleSubmit}>
+      <Nav />
       <h1>Add Paper Production:</h1>
       <h3> Enter Production Date:</h3>
       <input
